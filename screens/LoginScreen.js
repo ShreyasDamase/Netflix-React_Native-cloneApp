@@ -62,12 +62,12 @@ const LoginScreen = () => {
       await signInWithEmailAndPassword(auth, input, password);
       console.log("User signed in successfully.");
       navigation.navigate("ProfileScreen");
-    } catch (error) {
-      console.error("Error signing in:", error.message);
       navigation.reset({
         index: 0, // Reset to the first screen
         routes: [{ name: "ProfileScreen" }], // Navigate to ProfileScreen only
       }); // Set the error message if login fails
+    } catch (error) {
+      console.error("Error signing in:", error.message);
     } finally {
       setLoading(false); // Set loading false after sign-in attempt
     }
